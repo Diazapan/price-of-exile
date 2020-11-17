@@ -1,0 +1,17 @@
+<div class='container'>
+    <div class="row">
+        <div class="col-3">
+            <img src="{{item.icon}}" />
+        </div>
+        <div class="col-sm">
+            {{item.typeLine}}
+            <br>
+            Level: {{item.level}}
+            <span *ngIf='item.quality > 0'>
+            (+{{item.quality}}%)
+            </span>
+            <br>
+            <app-price-detail [item] = 'item'></app-price-detail>
+        </div>
+    </div>
+</div>

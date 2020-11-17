@@ -1,0 +1,44 @@
+<div (click)='item.selected = true' class = "itemCell">
+    <div *ngIf='!item.selected' class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div *ngIf="item.frameType > 1 else shortName">
+                    {{item.name}} - {{item.typeLine}} <span *ngIf='item.weaponSwap'>(Weapon Swap)</span>
+                </div>
+                <ng-template #shortName>
+                    {{item.typeLine}}
+                </ng-template>
+            </div>
+            <div class="col-sm">
+                <app-price-detail [item] = 'item'></app-price-detail>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div *ngIf='item.selected' class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div *ngIf='item.textString'>
+                    <pre>{{item.textString}}</pre>
+                </div>
+            </div>
+            <div class="col-2">
+                <img src="{{item.icon}}" />
+                <app-price-detail [item] = 'item'></app-price-detail>
+            </div>
+            <div class="col-sm">
+                
+                Socketed Gems:
+                <div *ngFor='let sItem of item.socketedItems' class='row'>
+                    <app-gem-detail [item] = 'sItem'></app-gem-detail>
+                </div>
+                <div>
+                    <button (click)='item.selected = false'>
+                        Close
+                    </button>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

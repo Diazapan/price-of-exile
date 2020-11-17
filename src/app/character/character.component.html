@@ -1,0 +1,9 @@
+<p>Details for {{charName}} [{{accountName}}]</p>
+<p>Items:</p>
+<ul>
+    <li *ngFor="let item of charService.itemlist" >
+        <app-item-detail [item]= 'item'></app-item-detail>
+    </li>
+</ul>
+<p>Total Price Estimate: {{(charService.priceTotal['chaos'].min+charService.priceTotal['chaos'].max)/2 | number : '1.2-2'}} Chaos 
+    and {{(charService.priceTotal['exalt'].min+charService.priceTotal['exalt'].max)/2 | number : '1.2-2'}} Exalt </p>

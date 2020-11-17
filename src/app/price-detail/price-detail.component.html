@@ -1,0 +1,25 @@
+
+<ng-container *ngIf='!item.priceInfo; else loaded'>
+</ng-container>
+
+<ng-template #loaded>
+    <ng-container *ngIf='item.frameType >=2; else noPrice'>
+        <ng-container *ngIf='item.priceInfo.loading; else loadedPrice'>
+            Loading price info
+        </ng-container>
+    </ng-container>
+</ng-template>
+<ng-template #noPrice>
+    <div>
+        Price info for Normal and Magic items is currently unavailable
+    </div>
+</ng-template>
+
+<ng-template #loadedPrice>
+    <div>
+        Estimate Price: {{item.priceInfo.average.toPrecision(4)}} {{item.priceInfo.currency}}
+        <span *ngIf='item.socketedItemPriceInfo'>
+            (Socketed Items: {{item.socketedItemPriceInfo.average.toPrecision(4)}})
+        </span>
+    </div>
+</ng-template>

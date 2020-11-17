@@ -1,0 +1,7 @@
+{
+    "*": {
+      "target": "https://www.pathofexile.com",
+      "secure": true,
+      "logLevel": "debug"
+    }
+  }

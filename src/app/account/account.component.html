@@ -1,0 +1,21 @@
+<span>
+    Account Name: 
+    <input [(ngModel)] = 'accountName' placeholder='Name'
+    (keyup.enter)='getAccountJson()'>
+    <!-- (blur)='getAccountJson()' -->
+    <!-- <button (click) = 'getAccountJson()'>Go!</button> -->
+</span>
+
+<span *ngIf = 'characterList.length > 0'>
+    <select #charList (change) = 'charName = charList.value'> <!-- (change) = 'selectChar(charList.value)' -->
+        <option *ngFor='let char of characterList' [value] = 'char.character'>
+            {{char.character}} ({{char.league}})
+        </option>
+    </select>
+    <button (click)='selectChar(charList.value)'>Load</button>
+</span>
+
+<p *ngIf='errorMsg != ""'>{{errorMsg}}</p>
+<div *ngIf='characterSelected'>
+    <app-character [accountName] = 'accountName' [charName] = 'charName'></app-character>
+</div>

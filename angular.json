@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]           
           },
           "configurations": {
             "production": {
@@ -62,7 +66,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "price-of-exile:build"
+            "browserTarget": "price-of-exile:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -119,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "price-of-exile"
+    }
+  },
+  "defaultProject": "price-of-exile",
+  "cli": {
+    "analytics": "dc5bef8a-b3f3-435e-9906-05eae9e5c420"
+  }
 }
